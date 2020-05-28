@@ -1,74 +1,75 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:transparent_image/transparent_image.dart';
 
-class RightSide extends StatelessWidget {
+class RightSide extends StatefulWidget {
+  @override
+  _RightSideState createState() => _RightSideState();
+}
+
+class _RightSideState extends State<RightSide> {
+  List<StaggeredTile> _staggeredTiles = const <StaggeredTile>[
+    const StaggeredTile.count(2, 2),
+  ];
+
+  List<String> imageList = [
+    'https://media.giphy.com/media/ijEiXYEo9DBxm/source.gif',
+    'https://cdn.dribbble.com/users/1331/screenshots/2603806/twittercelebration.gif',
+    'https://cdn.dribbble.com/users/1525393/screenshots/6420056/comp_4.gif',
+    // 'https://cdn.dribbble.com/users/15571/screenshots/4552604/ig-dribbble.gif',
+  ];
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Container(
-                margin: EdgeInsets.all(2),
-                height: MediaQuery.of(context).size.height/1.2,
-                width: MediaQuery.of(context).size.width/5,
-                color: Color(0xff4267B2),
-                child: Image.asset(
-                  'assets/social_Icon/facebook.png',
-                  scale: 7.0,
-                ),
-              ),
-            ],
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: GridView.count(
+        primary: true,
+        // mainAxisSpacing: 0,
+        crossAxisSpacing: 20,
+        mainAxisSpacing: 20,
+        crossAxisCount: 2,
+        children: [
+          Container(
+            // height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            child: Image.network(
+              'https://media.giphy.com/media/ijEiXYEo9DBxm/source.gif',
+              fit: BoxFit.cover,
+              filterQuality: FilterQuality.high,
+            ),
           ),
-        ),
-        
-      ],
+          Container(
+            // height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            child: Image.network(
+                'https://cdn.dribbble.com/users/1331/screenshots/2603806/twittercelebration.gif',
+                fit: BoxFit.cover,
+                filterQuality: FilterQuality.high,
+                ),
+          ),
+          Container(
+            // height: MediaQuery.of(context).size.height / 2,
+            width: MediaQuery.of(context).size.width / 2,
+            child: Image.network(
+                'https://cdn.dribbble.com/users/15571/screenshots/4552604/ig-dribbble.gif',
+                fit: BoxFit.cover,
+                filterQuality: FilterQuality.high,
+                ),
+          ),
+          Container(
+            // height: MediaQuery.of(context).size.height / 2,
+            width: MediaQuery.of(context).size.width / 2,
+            child: Image.network(
+                'https://cdn.dribbble.com/users/1525393/screenshots/6420056/comp_4.gif',
+                fit: BoxFit.cover,
+                filterQuality: FilterQuality.high,
+                ),
+          ),
+        ],
+      ),
     );
   }
 }
 
-// Table(
-//       defaultVerticalAlignment: TableCellVerticalAlignment.top,
-//       children: <TableRow>[
-//         TableRow(
-//           children: [
-//             FittedBox(
-//               fit: BoxFit.contain,
-//               child: Container(
-//                 margin: EdgeInsets.all(2),
-//                 color: Color(0xff4267B2),
-//                 height: 100.0,
-//                 width: 50.0,
-//                 child: Center(
-//                     child: Image.asset(
-//                   'assets/social_Icon/facebook.png',
-//                   scale: 10.0,
-//                 )),
-//               ),
-//             ),
-//             FittedBox(
-//                 fit: BoxFit.cover,
-//                 child: Container(
-//                   margin: EdgeInsets.all(2),
-//                   color: Color(0xff4267B2),
-//                   width: 50.0,
-//                   height: 50.0,
-//                 ),
-//               ),
-//             FittedBox(
-//               fit: BoxFit.cover,
-//               child: Container(
-//                 margin: EdgeInsets.all(2),
-//                 color: Color(0xff4267B2),
-//                 width: 50.0,
-//                 height: 50.0,
-//               ),
-//             )
-//           ],
-//         ),
-//       ],
-//     );
+
