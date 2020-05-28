@@ -10,16 +10,17 @@ class Home extends StatelessWidget {
         Row(
           children: [
             Container(
-              color: Colors.white,
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width / 2,
+              color: Colors.black54,
+              child: LeftSide(),
+            ),
+            Container(
+              color: Colors.grey[100],
               height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width / 2,
               child: RightSide(),
             ),
-            Container(
-                height: MediaQuery.of(context).size.height,
-                width: MediaQuery.of(context).size.width / 2,
-                color: Color(0xffF5F5F5),
-                child: LeftSide()),
           ],
         ),
       ],

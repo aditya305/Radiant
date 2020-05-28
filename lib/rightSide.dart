@@ -1,90 +1,74 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:mywebsite/widget/chipList.dart';
+import 'package:flutter/rendering.dart';
 
 class RightSide extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0.0,
-        title: AutoSizeText(
-          'rad!ant',
-          style: GoogleFonts.nunito(
-            color: Colors.black,
-            fontWeight: FontWeight.w900,
-            fontSize: 27.0,
+    return Stack(
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                margin: EdgeInsets.all(2),
+                height: MediaQuery.of(context).size.height/1.2,
+                width: MediaQuery.of(context).size.width/5,
+                color: Color(0xff4267B2),
+                child: Image.asset(
+                  'assets/social_Icon/facebook.png',
+                  scale: 7.0,
+                ),
+              ),
+            ],
           ),
         ),
-        actions: [
-         Center(child: ChipList()),
-        ],
-      ),
-      body: Container(
-        color: Colors.white,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(left:20),
-              child: AutoSizeText(
-                'Making complicated',
-                style: GoogleFonts.nunito(
-                  fontSize: 40.0,
-                  color: Colors.black26,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left:20),
-              child: Row(
-                children: [
-                  AutoSizeText(
-                    'things',
-                    style: GoogleFonts.nunito(
-                      fontSize: 37.0,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  SizedBox(
-                    width: 5.0,
-                  ),
-                  AutoSizeText(
-                    'obvious',
-                    style: GoogleFonts.nunito(
-                      fontSize: 30.0,
-                      color: Color(0xff9C27B0),
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left:20),
-              child: RaisedButton(
-                color: Colors.black,
-                child: AutoSizeText(
-                  'contact us',
-                  style: GoogleFonts.nunito(
-                    fontSize: 20.0,
-                    color: Colors.white,
-                  ),
-                ),
-                onPressed: () {},
-              ),
-            ),
-          ],
-        ),
-      ),
+        
+      ],
     );
   }
 }
+
+// Table(
+//       defaultVerticalAlignment: TableCellVerticalAlignment.top,
+//       children: <TableRow>[
+//         TableRow(
+//           children: [
+//             FittedBox(
+//               fit: BoxFit.contain,
+//               child: Container(
+//                 margin: EdgeInsets.all(2),
+//                 color: Color(0xff4267B2),
+//                 height: 100.0,
+//                 width: 50.0,
+//                 child: Center(
+//                     child: Image.asset(
+//                   'assets/social_Icon/facebook.png',
+//                   scale: 10.0,
+//                 )),
+//               ),
+//             ),
+//             FittedBox(
+//                 fit: BoxFit.cover,
+//                 child: Container(
+//                   margin: EdgeInsets.all(2),
+//                   color: Color(0xff4267B2),
+//                   width: 50.0,
+//                   height: 50.0,
+//                 ),
+//               ),
+//             FittedBox(
+//               fit: BoxFit.cover,
+//               child: Container(
+//                 margin: EdgeInsets.all(2),
+//                 color: Color(0xff4267B2),
+//                 width: 50.0,
+//                 height: 50.0,
+//               ),
+//             )
+//           ],
+//         ),
+//       ],
+//     );
